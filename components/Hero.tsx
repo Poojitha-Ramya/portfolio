@@ -166,7 +166,7 @@ export default function Hero() {
 
   {/* Cover Letter PDF */}
   <a
-    href="/Poojitha_Ramya_cover_letter.pdf"
+    href="/Poojitha_Ramya_Cover_Letter.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="hero-cta-btn"
