@@ -43,7 +43,7 @@ export default function Hero() {
           color: "#c855f0",
           fontSize: "clamp(0.8rem, 2vw, 0.95rem)",
           fontWeight: 500,
-          marginBottom: "clamp(1.4rem, 4vw, 3rem)",
+          marginBottom: "clamp(1.2rem, 3vw, 2.2rem)",
           animation: "fadeUp 0.6s ease 0s both",
           backdropFilter: "blur(10px)",
           background: "rgba(180, 60, 240, 0.1)",
@@ -60,31 +60,26 @@ export default function Hero() {
           width: "100%",
           maxWidth: "min(100%, 1200px)",
           overflow: "hidden",
-          paddingLeft: "0.25rem",
-          paddingRight: "0.25rem",
+          paddingLeft: "0.5rem",
+          paddingRight: "0.5rem",
         }}
       >
         <h1
           className="hero-title"
           style={{
-            fontSize: "clamp(2rem, 8vw, 5rem)",
             fontWeight: 900,
-            color: "#ffffff",
             margin: "0 auto",
-            lineHeight: 1.02,
             letterSpacing: "-0.02em",
             fontFamily: "'Syne', sans-serif",
             maxWidth: "100%",
             overflow: "hidden",
-            wordBreak: "break-word",
-            overflowWrap: "anywhere",
             textAlign: "center",
-            textWrap: "balance",
+            lineHeight: 0.95,
           }}
         >
-          <span style={{ display: "block", color: "#ffffff" }}>Chipurupalle</span>
-          <span style={{ display: "block", color: "#d946ef" }}>Poojitha</span>
-          <span style={{ display: "block", color: "#d946ef", marginBottom: "clamp(1rem, 3vw, 1.5rem)" }}>Ramya</span>
+          <span style={{ display: "block", color: "#ffffff", fontSize: "clamp(1.75rem, 6.5vw, 4.2rem)" }}>Chipurupalle</span>
+          <span style={{ display: "block", color: "#d946ef", fontSize: "clamp(2.2rem, 8vw, 5rem)", marginTop: "-0.1em" }}>Poojitha</span>
+          <span style={{ display: "block", color: "#d946ef", fontSize: "clamp(2.2rem, 8vw, 5rem)", marginTop: "-0.1em", marginBottom: "clamp(0.8rem, 2.5vw, 1.2rem)" }}>Ramya</span>
         </h1>
       </div>
 
@@ -94,7 +89,8 @@ export default function Hero() {
           fontSize: "clamp(1rem, 2.3vw, 1.4rem)",
           color: "rgba(240,238,255,0.9)",
           fontWeight: 500,
-          marginBottom: "1rem",
+          marginBottom: "0.6rem",
+          marginTop: "0.4rem",
           animation: "fadeUp 0.6s ease 0.15s both",
           maxWidth: "100%",
         }}
@@ -107,7 +103,8 @@ export default function Hero() {
         style={{
           fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
           color: "rgba(240,238,255,0.7)",
-          marginBottom: "clamp(1.5rem, 4vw, 2.5rem)",
+          marginBottom: "clamp(1.8rem, 4vw, 2.8rem)",
+          marginTop: "0.4rem",
           maxWidth: "min(100%, 760px)",
           lineHeight: 1.7,
           animation: "fadeUp 0.6s ease 0.2s both",
@@ -120,12 +117,14 @@ export default function Hero() {
         className="hero-cta-group"
         style={{
           display: "flex",
-          gap: "1rem",
+          gap: "0.8rem",
           justifyContent: "center",
           flexWrap: "wrap",
           width: "100%",
           maxWidth: "920px",
           animation: "fadeUp 0.7s ease 0.3s both",
+          paddingLeft: "0.5rem",
+          paddingRight: "0.5rem",
         }}
       >
         <a
