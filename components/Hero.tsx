@@ -58,41 +58,33 @@ export default function Hero() {
         style={{
           animation: "fadeUp 0.6s ease 0.1s both",
           width: "100%",
-          maxWidth: "1200px",
+          maxWidth: "min(100%, 1200px)",
+          overflow: "hidden",
+          paddingLeft: "0.25rem",
+          paddingRight: "0.25rem",
         }}
       >
         <h1
           className="hero-title"
           style={{
-            fontSize: "clamp(2.6rem, 7.8vw, 6.2rem)",
+            fontSize: "clamp(2rem, 8vw, 5rem)",
             fontWeight: 900,
             color: "#ffffff",
-            margin: "0",
-            lineHeight: 0.96,
+            margin: "0 auto",
+            lineHeight: 1.02,
             letterSpacing: "-0.02em",
             fontFamily: "'Syne', sans-serif",
-            wordBreak: "keep-all",
-            overflowWrap: "normal",
+            maxWidth: "100%",
+            overflow: "hidden",
+            wordBreak: "break-word",
+            overflowWrap: "anywhere",
+            textAlign: "center",
+            textWrap: "balance",
           }}
         >
-          Chipurupalli
-        </h1>
-        <h1
-          className="hero-title hero-title-accent"
-          style={{
-            fontSize: "clamp(2.6rem, 7.8vw, 6.2rem)",
-            fontWeight: 900,
-            color: "#d946ef",
-            margin: "0",
-            lineHeight: 0.96,
-            letterSpacing: "-0.02em",
-            fontFamily: "'Syne', sans-serif",
-            marginBottom: "clamp(1rem, 3vw, 1.5rem)",
-            wordBreak: "keep-all",
-            overflowWrap: "normal",
-          }}
-        >
-          Poojitha Ramya
+          <span style={{ display: "block", color: "#ffffff" }}>Chipurupalle</span>
+          <span style={{ display: "block", color: "#d946ef" }}>Poojitha</span>
+          <span style={{ display: "block", color: "#d946ef", marginBottom: "clamp(1rem, 3vw, 1.5rem)" }}>Ramya</span>
         </h1>
       </div>
 
