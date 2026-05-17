@@ -34,6 +34,18 @@ body {
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
+  min-width: 320px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  width: 100%;
+  overflow-x: clip;
+}
+
+section {
+  width: 100%;
 }
 
 img,
@@ -59,6 +71,50 @@ canvas {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.section-shell {
+  width: 100%;
+  overflow: hidden;
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+.mobile-menu-backdrop {
+  display: none;
+}
+
+.menu-icon-line {
+  display: none;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-description {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.hero-cta-btn {
+  min-width: 0;
+}
+
+.section-shell p,
+.section-shell li,
+.section-shell a,
+.section-shell span,
+.site-footer p {
+  overflow-wrap: anywhere;
 }
 
 /* Scrollbar */
@@ -131,6 +187,7 @@ canvas {
   }
 
   .menu-icon-line {
+    display: block;
     width: 20px;
     height: 2px;
     border-radius: 10px;
@@ -152,6 +209,7 @@ canvas {
   }
 
   .mobile-menu-backdrop {
+    display: block;
     position: fixed;
     inset: 0;
     border: none;
@@ -169,7 +227,7 @@ canvas {
 
   .mobile-menu-panel {
     display: flex;
-    transform: translateX(110%);
+    transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
@@ -180,6 +238,14 @@ canvas {
     transform: translateX(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex !important;
   }
 
   .mobile-menu-link {
@@ -353,6 +419,64 @@ canvas {
 
   .reveal {
     transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-shell {
+    padding: 52px 16px !important;
+  }
+
+  .hero-section {
+    padding-top: 84px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 14vw, 2.9rem) !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .hero-cta-group {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-cta-btn {
+    width: 100% !important;
+    font-size: 0.9rem !important;
+    min-height: 46px !important;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-bg-card,
+  .skills-card,
+  .projects-card,
+  .cert-card,
+  .contact-link-item {
+    padding: 16px !important;
+  }
+
+  .section-shell h3,
+  .project-title,
+  .cert-title {
+    font-size: 0.98rem !important;
+  }
+
+  .site-footer p {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
   }
 }
 

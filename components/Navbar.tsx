@@ -33,85 +33,132 @@ export default function Navbar() {
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 100,
+          zIndex: 200,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "18px 7%",
-          background: "#080810",
+          gap: "1rem",
+          padding: "16px clamp(16px, 4vw, 7%)",
+          background: scrolled ? "rgba(8,8,16,0.98)" : "rgba(8,8,16,0.96)",
           borderBottom: "1px solid rgba(180,80,220,0.18)",
-          transition: "background 0.3s",
+          backdropFilter: "blur(14px)",
+          boxShadow: scrolled ? "0 10px 30px rgba(0,0,0,0.22)" : "none",
+          transition: "background 0.25s ease, box-shadow 0.25s ease",
         }}
       >
-        {/* Logo */}
         <span
           className="nav-logo"
           style={{
             fontFamily: "Syne, sans-serif",
             fontWeight: 800,
-            fontSize: "1.2rem",
+            fontSize: "clamp(1rem, 2vw, 1.2rem)",
             color: "#c855f0",
             letterSpacing: "1px",
+            whiteSpace: "nowrap",
           }}
         >
           CPR
         </span>
 
-        {/* Menu Button */}
+        <div
+          className="desktop-nav"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "1.15rem",
+          }}
+        >
+          {links.map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              style={{
+                color: "#b8b8d0",
+                textDecoration: "none",
+                fontSize: "0.95rem",
+                padding: "0.55rem 0.8rem",
+                borderRadius: "999px",
+                transition: "background 0.2s ease, color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(200,85,240,0.12)";
+                e.currentTarget.style.color = "#f0eeff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "#b8b8d0";
+              }}
+            >
+              {link}
+            </a>
+          ))}
+        </div>
+
         <button
           className={`mobile-menu-toggle ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(true)}
+          onClick={() => setMenuOpen((value) => !value)}
           aria-label="Open menu"
+          aria-expanded={menuOpen}
           style={{
-            background: "none",
-            border: "none",
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.08)",
             color: "#f0eeff",
             fontSize: "1.5rem",
             cursor: "pointer",
-            zIndex: 130,
+            zIndex: 230,
+            width: "46px",
+            height: "46px",
+            borderRadius: "14px",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backdropFilter: "blur(12px)",
           }}
         >
-          ☰
+          <span className="sr-only">Toggle menu</span>
+          <span className="menu-icon-line" />
+          <span className="menu-icon-line" />
+          <span className="menu-icon-line" />
         </button>
       </nav>
 
-      {/* Backdrop */}
-      <div
+      <button
+        type="button"
+        className={`mobile-menu-backdrop ${menuOpen ? "open" : ""}`}
         onClick={() => setMenuOpen(false)}
+        aria-label="Close mobile menu backdrop"
         style={{
           position: "fixed",
           inset: 0,
-          background: "rgba(0,0,0,0.5)",
+          background: "rgba(3,3,10,0.55)",
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? "auto" : "none",
-          transition: "0.3s ease",
-          zIndex: 110,
+          border: "none",
+          transition: "opacity 0.25s ease",
+          zIndex: 150,
         }}
       />
 
-      {/* Sidebar */}
       <div
         className={`mobile-menu-panel ${menuOpen ? "open" : ""}`}
         style={{
           position: "fixed",
-          top: 0,
-          right: 0,
-          width: "min(360px, 86vw)",
+          inset: 0,
           height: "100vh",
-          background: "#0e0e1a",
+          width: "100vw",
+          background: "rgba(10, 10, 22, 0.98)",
           borderLeft: "1px solid rgba(180,80,220,0.18)",
-          padding: "5rem 1.5rem 1.5rem",
+          padding: "5rem 1.2rem 1.2rem",
           display: "flex",
           flexDirection: "column",
-          gap: "1rem",
-          transform: menuOpen
-            ? "translateX(0)"
-            : "translateX(110%)",
-          transition: "transform 0.35s ease",
-          zIndex: 120,
+          justifyContent: "center",
+          gap: "0.8rem",
+          transform: menuOpen ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
+          zIndex: 180,
+          backdropFilter: "blur(18px)",
         }}
       >
-        {/* Close Button */}
         <button
           type="button"
           onClick={() => setMenuOpen(false)}
@@ -120,44 +167,52 @@ export default function Navbar() {
             position: "absolute",
             top: "1rem",
             right: "1rem",
-            background: "transparent",
-            border: "none",
+            background: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(255,255,255,0.08)",
             color: "#ffffff",
-            fontSize: "2rem",
+            fontSize: "1.75rem",
             cursor: "pointer",
             zIndex: 9999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "40px",
-            height: "40px",
+            width: "44px",
+            height: "44px",
+            borderRadius: "14px",
           }}
         >
           ✕
         </button>
 
-        {/* Links */}
         {links.map((link) => (
           <a
             key={link}
             href={`#${link.toLowerCase()}`}
             onClick={() => setMenuOpen(false)}
+            className="mobile-menu-link"
             style={{
-              color: "#b8b8d0",
+              color: "#f0eeff",
               textDecoration: "none",
-              fontSize: "1.1rem",
-              padding: "0.8rem 1rem",
-              borderRadius: "10px",
-              transition: "0.2s ease",
+              fontSize: "clamp(1.05rem, 4vw, 1.25rem)",
+              padding: "1rem 1.05rem",
+              borderRadius: "14px",
+              border: "1px solid rgba(255,255,255,0.06)",
+              background: "rgba(255,255,255,0.03)",
+              minHeight: "48px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              transition: "transform 0.2s ease, background 0.2s ease, color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background =
-                "rgba(200,85,240,0.12)";
+              e.currentTarget.style.background = "rgba(200,85,240,0.12)";
               e.currentTarget.style.color = "#c855f0";
+              e.currentTarget.style.transform = "translateX(4px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "#b8b8d0";
+              e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+              e.currentTarget.style.color = "#f0eeff";
+              e.currentTarget.style.transform = "translateX(0)";
             }}
           >
             {link}
